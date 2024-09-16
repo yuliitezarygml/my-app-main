@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    defaultConfig {
+        multiDexEnabled true
+    }
+    compileSdk 33
+
+    defaultConfig {
+        applicationId 'com.yuliitezary.gpt'
+        minSdk 19
+        targetSdk 33
+        versionCode 13
+        versionName "2.4"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.yuliitezary.gpt'
+    ndkVersion '26.1.10909125'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-ads:22.5.0'
+    constraints.implementation 'androidx.fragment:fragment:1.6.2'
+}
